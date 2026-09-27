@@ -4,14 +4,23 @@ import MessageBubble from './MessageBubble'
 
 type MessageListProps = {
   messages: Message[]
+  hasActiveConversation: boolean
 }
 
-export default function MessageList({ messages }: MessageListProps) {
+export default function MessageList({ messages, hasActiveConversation }: MessageListProps) {
   const bottomRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
+
+  if (!hasActiveConversation) {
+    return (
+      <div className="flex flex-1 items-center justify-center overflow-y-auto p-4 pb-6">
+        <p className="text-center text-stone-600">Crie ou selecione uma conversa</p>
+      </div>
+    )
+  }
 
   if (messages.length === 0) {
     return (

@@ -373,19 +373,19 @@ sequenceDiagram
 ### Fase 3 — Integração do chat
 
 #### Tarefa 3.1 — Migrar envio para a store
-- [ ] Remover `useState` de `Chat.tsx`
-- [ ] `MessageList` recebe mensagens da conversa ativa
-- [ ] `ChatInput` usa `sender` e `toggleSender` da store
+- [x] Remover `useState` de `Chat.tsx`
+- [x] `MessageList` recebe mensagens da conversa ativa
+- [x] `ChatInput` usa `sender` e `toggleSender` da store
 - **Verificação:** enviar mensagens em conversas distintas mantém históricos isolados
 
 #### Tarefa 3.2 — Empty states
-- [ ] Empty state global (sem conversa ativa)
-- [ ] Empty state por conversa (sem mensagens) — já existente, adaptar condição
+- [x] Empty state global (sem conversa ativa)
+- [x] Empty state por conversa (sem mensagens) — já existente, adaptar condição
 - **Verificação:** textos corretos em cada cenário
 
 #### Tarefa 3.3 — Input desabilitado
-- [ ] `ChatInput` aceita prop `disabled`
-- [ ] Aplicar opacidade 50% e bloquear interações quando `activeConversationId === null`
+- [x] `ChatInput` aceita prop `disabled`
+- [x] Aplicar opacidade 50% e bloquear interações quando `activeConversationId === null`
 - **Verificação:** input inativo ao abrir o app; ativo após criar/selecionar conversa
 
 ---

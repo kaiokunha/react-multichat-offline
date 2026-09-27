@@ -1,40 +1,27 @@
-import { useState } from 'react'
-import type { Message, Sender } from '../types/message'
+import { useChatStore } from '../stores/chatStore'
 import ChatInput from './ChatInput'
 import MessageList from './MessageList'
 import Sidebar from './Sidebar'
 
 export default function Chat() {
-  const [messages, setMessages] = useState<Message[]>([])
-  const [sender, setSender] = useState<Sender>('user')
+  const conversations = useChatStore((state) => state.conversations)
+  const activeConversationId = useChatStore((state) => state.activeConversationId)
 
-  function handleSend(text: string) {
-    if (!text.trim()) return
-
-    const message: Message = {
-      id: crypto.randomUUID(),
-      text,
-      sender,
-    }
-
-    setMessages([...messages, message])
-  }
-
-  function handleToggleSender() {
-    setSender(sender === 'user' ? 'robot' : 'user')
-  }
+  const activeConversation = conversations.find(
+    (conversation) => conversation.id === activeConversationId,
+  )
+  const hasActiveConversation = activeConversation !== undefined
 
   return (
     <div className="flex h-dvh bg-stone-200">
       <Sidebar />
       <div className="min-w-0 flex-1">
         <div className="mx-auto flex h-dvh max-w-2xl flex-col">
-          <MessageList messages={messages} />
-          <ChatInput
-            sender={sender}
-            onToggleSender={handleToggleSender}
-            onSend={handleSend}
+          <MessageList
+            messages={activeConversation?.messages ?? []}
+            hasActiveConversation={hasActiveConversation}
           />
+          <ChatInput disabled={!hasActiveConversation} />
         </div>
       </div>
     </div>

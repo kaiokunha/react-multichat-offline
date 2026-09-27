@@ -3,6 +3,7 @@ import type { Sender } from '../types/message'
 type SenderToggleProps = {
   sender: Sender
   onToggle: () => void
+  disabled?: boolean
 }
 
 function UserIcon() {
@@ -37,13 +38,14 @@ function RobotIcon() {
   )
 }
 
-export default function SenderToggle({ sender, onToggle }: SenderToggleProps) {
+export default function SenderToggle({ sender, onToggle, disabled = false }: SenderToggleProps) {
   const isUser = sender === 'user'
 
   return (
     <button
       type="button"
       onClick={onToggle}
+      disabled={disabled}
       className={`flex shrink-0 items-center gap-1.5 rounded-lg px-2 py-2 transition-colors ${isUser
           ? 'text-stone-700 hover:bg-stone-100'
           : 'text-purple-700 hover:bg-purple-50'
