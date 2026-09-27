@@ -358,14 +358,14 @@ sequenceDiagram
 ### Fase 2 — Sidebar
 
 #### Tarefa 2.1 — Componentes do sidebar (desktop)
-- [ ] Criar `Sidebar.tsx` e `SidebarItem.tsx`
-- [ ] Listar conversas (ID como label), destacar ativa
-- [ ] Botão nova conversa conectado à store
-- [ ] Ícone excluir por item
+- [x] Criar `Sidebar.tsx` e `SidebarItem.tsx`
+- [x] Listar conversas (ID como label), destacar ativa
+- [x] Botão nova conversa conectado à store
+- [x] Ícone excluir por item
 - **Verificação:** criar/selecionar/excluir conversas reflete na lista
 
 #### Tarefa 2.2 — Layout desktop
-- [ ] Refatorar `Chat.tsx`: sidebar fixo à esquerda + área de chat com `max-w-2xl` centralizado
+- [x] Refatorar `Chat.tsx`: sidebar fixo à esquerda + área de chat com `max-w-2xl` centralizado
 - **Verificação:** layout desktop conforme wireframe
 
 ---

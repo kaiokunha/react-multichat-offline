@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { Message, Sender } from '../types/message'
 import ChatInput from './ChatInput'
 import MessageList from './MessageList'
+import Sidebar from './Sidebar'
 
 export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([])
@@ -24,14 +25,17 @@ export default function Chat() {
   }
 
   return (
-    <div className="min-h-dvh bg-stone-200">
-      <div className="mx-auto flex h-dvh max-w-2xl flex-col">
-        <MessageList messages={messages} />
-        <ChatInput
-          sender={sender}
-          onToggleSender={handleToggleSender}
-          onSend={handleSend}
-        />
+    <div className="flex h-dvh bg-stone-200">
+      <Sidebar />
+      <div className="min-w-0 flex-1">
+        <div className="mx-auto flex h-dvh max-w-2xl flex-col">
+          <MessageList messages={messages} />
+          <ChatInput
+            sender={sender}
+            onToggleSender={handleToggleSender}
+            onSend={handleSend}
+          />
+        </div>
       </div>
     </div>
   )
