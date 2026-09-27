@@ -1,6 +1,10 @@
 import { useChatStore } from '../stores/chatStore'
 import SidebarItem from './SidebarItem'
 
+type SidebarProps = {
+  onNavigate?: () => void
+}
+
 function PlusIcon() {
   return (
     <svg
@@ -19,7 +23,7 @@ function PlusIcon() {
   )
 }
 
-export default function Sidebar() {
+export default function Sidebar({ onNavigate }: SidebarProps) {
   const {
     conversations,
     activeConversationId,
@@ -28,12 +32,22 @@ export default function Sidebar() {
     deleteConversation,
   } = useChatStore()
 
+  function handleCreate() {
+    createConversation()
+    onNavigate?.()
+  }
+
+  function handleSelect(id: string) {
+    selectConversation(id)
+    onNavigate?.()
+  }
+
   return (
-    <aside className="flex h-dvh w-64 shrink-0 flex-col border-r border-stone-300 bg-stone-100">
+    <aside className="flex h-full w-64 shrink-0 flex-col border-r border-stone-300 bg-stone-100">
       <div className="p-3">
         <button
           type="button"
-          onClick={createConversation}
+          onClick={handleCreate}
           className="flex w-full items-center justify-center gap-2 rounded-lg bg-stone-800 px-3 py-2 text-sm text-white hover:bg-stone-700"
         >
           <PlusIcon />
@@ -46,7 +60,7 @@ export default function Sidebar() {
             key={conversation.id}
             id={conversation.id}
             isActive={conversation.id === activeConversationId}
-            onSelect={selectConversation}
+            onSelect={handleSelect}
             onDelete={deleteConversation}
           />
         ))}

@@ -393,9 +393,9 @@ sequenceDiagram
 ### Fase 4 — Mobile
 
 #### Tarefa 4.1 — Sidebar retrátil
-- [ ] Criar `MobileMenuButton.tsx` (hamburger)
-- [ ] Drawer overlay + backdrop no mobile
-- [ ] Fechar ao selecionar/criar conversa
+- [x] Criar `MobileMenuButton.tsx` (hamburger)
+- [x] Drawer overlay + backdrop no mobile
+- [x] Fechar ao selecionar/criar conversa
 - **Verificação:** sidebar oculto por padrão no mobile; abre/fecha corretamente
 
 ---
