@@ -344,13 +344,13 @@ sequenceDiagram
 ### Fase 1 — Fundação
 
 #### Tarefa 1.1 — Dependência e tipos
-- [ ] Instalar `zustand`
-- [ ] Criar `src/types/conversation.ts`
+- [x] Instalar `zustand`
+- [x] Criar `src/types/conversation.ts`
 - **Verificação:** `npm run build` sem erros
 
 #### Tarefa 1.2 — Store Zustand
-- [ ] Criar `src/stores/chatStore.ts` com estado inicial vazio
-- [ ] Implementar ações: `createConversation`, `selectConversation`, `deleteConversation`, `addMessage`, `toggleSender`
+- [x] Criar `src/stores/chatStore.ts` com estado inicial vazio
+- [x] Implementar ações: `createConversation`, `selectConversation`, `deleteConversation`, `addMessage`, `toggleSender`
 - **Verificação:** store importável; estado inicial com `activeConversationId: null`
 
 ---
