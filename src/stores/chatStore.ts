@@ -57,7 +57,7 @@ export const useChatStore = create<ChatState>()(
         const message: Message = {
           id: crypto.randomUUID(),
           text: trimmedText,
-          sender,
+          sender, 
         }
 
         set((state) => ({
