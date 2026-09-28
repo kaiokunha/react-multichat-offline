@@ -48,13 +48,13 @@ export default function Sidebar({ onNavigate }: SidebarProps) {
         <button
           type="button"
           onClick={handleCreate}
-          className="flex w-full items-center justify-center gap-2 rounded-lg bg-stone-800 px-3 py-2 text-sm text-white hover:bg-stone-700"
+          className="flex w-full items-center justify-center gap-2 rounded-lg bg-stone-800 px-3 py-2 text-sm text-white transition-colors hover:bg-stone-700"
         >
           <PlusIcon />
           Nova conversa
         </button>
       </div>
-      <ul className="flex-1 overflow-y-auto">
+      <ul className="flex flex-1 flex-col gap-1 overflow-y-auto px-2 pb-3">
         {conversations.map((conversation) => (
           <SidebarItem
             key={conversation.id}

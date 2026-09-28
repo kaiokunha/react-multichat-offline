@@ -29,22 +29,21 @@ export default function Chat() {
         <MobileMenuButton isOpen={isSidebarOpen} onClick={toggleSidebar} />
       </header>
 
-      <div className="relative flex min-h-0 flex-1">
-        {isSidebarOpen && (
-          <button
-            type="button"
-            aria-label="Fechar menu"
-            className="absolute inset-0 z-20 bg-black/40 md:hidden"
-            onClick={closeSidebar}
-          />
-        )}
+      <div className="relative flex min-h-0 flex-1 overflow-hidden">
+        <button
+          type="button"
+          aria-label="Fechar menu"
+          tabIndex={isSidebarOpen ? 0 : -1}
+          className={`absolute inset-0 z-20 bg-black/40 transition-opacity duration-200 md:hidden ${
+            isSidebarOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
+          }`}
+          onClick={closeSidebar}
+        />
 
         <div
-          className={
-            isSidebarOpen
-              ? 'absolute inset-y-0 left-0 z-30 md:static'
-              : 'hidden md:static md:block'
-          }
+          className={`absolute inset-y-0 left-0 z-30 transition-transform duration-200 ease-out md:static md:translate-x-0 ${
+            isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
         >
           <Sidebar onNavigate={closeSidebar} />
         </div>

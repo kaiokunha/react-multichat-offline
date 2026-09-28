@@ -26,7 +26,7 @@ export default function MobileMenuButton({ isOpen, onClick }: MobileMenuButtonPr
     <button
       type="button"
       onClick={onClick}
-      className="rounded-lg p-2 text-stone-800 hover:bg-stone-300"
+      className="rounded-lg p-2 text-stone-800 transition-colors hover:bg-stone-300"
       aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
       aria-expanded={isOpen}
     >
